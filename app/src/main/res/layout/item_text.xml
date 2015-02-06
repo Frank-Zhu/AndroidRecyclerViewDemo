@@ -8,7 +8,6 @@
     card_view:cardCornerRadius="4dp">
 
     <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/text_view"
         android:padding="20dp"
         android:layout_width="match_parent"

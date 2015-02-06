@@ -1,4 +1,4 @@
-package com.frankzhu.recyclerviewdemo;
+package com.frankzhu.recyclerviewdemo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.frankzhu.recyclerviewdemo.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

@@ -4,5 +4,10 @@
     <string name="app_name">RecyclerViewDemo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="normal_list">Normal List</string>
+    <string name="normal_grid">Normal Grid</string>
+    <string name="normal_staggered">Normal Staggered</string>
+    <string name="multiple_list">Multiple List</string>
+    <string name="multiple_grid">Multiple Grid</string>
 
 </resources>
