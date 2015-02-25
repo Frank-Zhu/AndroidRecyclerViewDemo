@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.adapter.HeaderBottomItemAdapter;
-import com.frankzhu.recyclerviewdemo.adapter.MultipleItemAdapter;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -30,7 +29,7 @@ import butterknife.InjectView;
  * 2015/2/6        ZhuWenWu            1.0                    1.0
  * Why & What is modified:
  */
-public class MultipleFragment extends Fragment {
+public class MultipleHeaderBottomFragment extends Fragment {
     public static final int TYPE_LINEAR_LAYOUT = 1;
     public static final int TYPE_GRID_LAYOUT = 2;
     public static final int TYPE_STAGGERED_GRID_LAYOUT = 3;
@@ -38,9 +37,11 @@ public class MultipleFragment extends Fragment {
     RecyclerView mRecyclerView;
 
     private int type = TYPE_LINEAR_LAYOUT;
+    private GridLayoutManager gridLayoutManager;
+    private HeaderBottomItemAdapter mAdapter;
 
-    public static MultipleFragment newInstance(int type) {
-        MultipleFragment fragment = new MultipleFragment();
+    public static MultipleHeaderBottomFragment newInstance(int type) {
+        MultipleHeaderBottomFragment fragment = new MultipleHeaderBottomFragment();
         Bundle args = new Bundle();
         args.putInt("type", type);
         fragment.setArguments(args);
@@ -66,12 +67,22 @@ public class MultipleFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (type == TYPE_GRID_LAYOUT) {
-            mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));//这里用线性宫格显示 类似于grid view
+            gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+            mRecyclerView.setLayoutManager(gridLayoutManager);//这里用线性宫格显示 类似于grid view
         } else if (type == TYPE_STAGGERED_GRID_LAYOUT) {
             mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流
         } else {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));//这里用线性显示 类似于list view
         }
-        mRecyclerView.setAdapter(new MultipleItemAdapter(getActivity()));
+        mAdapter = new HeaderBottomItemAdapter(getActivity());
+        mRecyclerView.setAdapter(mAdapter);
+        if (gridLayoutManager != null) {//设置头部及底部View占据整行空间
+            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    return (mAdapter.isHeaderView(position) || mAdapter.isBottomView(position)) ? gridLayoutManager.getSpanCount() : 1;
+                }
+            });
+        }
     }
 }

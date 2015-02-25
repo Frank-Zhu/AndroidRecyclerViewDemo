@@ -26,8 +26,10 @@ import butterknife.InjectView;
  * Why & What is modified:
  */
 public class MultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private static final int ITEM_TYPE_IMAGE = 0;
-    private static final int ITEM_TYPE_TEXT = 1;
+    public static enum ITEM_TYPE {
+        ITEM_TYPE_IMAGE,
+        ITEM_TYPE_TEXT
+    }
 
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
@@ -41,8 +43,8 @@ public class MultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == ITEM_TYPE_IMAGE) {
-            return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_image, parent, false));
+        if (viewType == ITEM_TYPE.ITEM_TYPE_IMAGE.ordinal()) {
+            return new ImageViewHolder(mLayoutInflater.inflate(R.layout.item_image, parent, false));
         } else {
             return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
         }
@@ -59,7 +61,7 @@ public class MultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemViewType(int position) {
-        return position % 2 == 0 ? ITEM_TYPE_IMAGE : ITEM_TYPE_TEXT;
+        return position % 2 == 0 ? ITEM_TYPE.ITEM_TYPE_IMAGE.ordinal() : ITEM_TYPE.ITEM_TYPE_TEXT.ordinal();
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.frankzhu.recyclerviewdemo.fragment.MultipleFragment;
+import com.frankzhu.recyclerviewdemo.fragment.MultipleHeaderBottomFragment;
 import com.frankzhu.recyclerviewdemo.fragment.NormalFragment;
 
 import butterknife.ButterKnife;
@@ -45,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
             updateMultipleFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
             return true;
         } else if (id == R.id.action_multiple_grid) {
-            updateMultipleFragment(MultipleFragment.TYPE_GRID_LAYOUT);
+            updateMultipleHeaderFragment(MultipleFragment.TYPE_GRID_LAYOUT);
             return true;
         }
 
@@ -61,6 +62,12 @@ public class MainActivity extends ActionBarActivity {
     public void updateMultipleFragment(int type) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, MultipleFragment.newInstance(type))
+                .commit();
+    }
+
+    public void updateMultipleHeaderFragment(int type) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, MultipleHeaderBottomFragment.newInstance(type))
                 .commit();
     }
 }
