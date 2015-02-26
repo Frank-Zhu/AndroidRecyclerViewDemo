@@ -4,7 +4,9 @@ Android RecyclerView Demo
 Blogs
 ============
 Android RecyclerView part 1 blog -->[RecyclerView使用详解（一）](http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/)
+
 Android RecyclerView part 2 blog -->[RecyclerView使用详解（二）](http://frank-zhu.github.io/android/2015/02/25/android-recyclerview-part-2/)
+
 Android RecyclerView part 3 blog -->[RecyclerView使用详解（三）](http://frank-zhu.github.io/android/2015/02/26/android-recyclerview-part-3/)
 
 Here you can find:
@@ -18,7 +20,6 @@ Here you can find:
 
 Arts
 ============
-<br>
 LinearLayoutManager样式
 ![](https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/normal_2.png)
 
