@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 
+import com.frankzhu.recyclerviewdemo.fragment.AnimFragment;
+import com.frankzhu.recyclerviewdemo.fragment.FullyExpandedFragment;
 import com.frankzhu.recyclerviewdemo.fragment.MultipleFragment;
 import com.frankzhu.recyclerviewdemo.fragment.MultipleHeaderBottomFragment;
 import com.frankzhu.recyclerviewdemo.fragment.NormalFragment;
@@ -39,6 +41,14 @@ public class DetailActivity extends ActionBarActivity {
             updateMultipleHeaderFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
         } else if (index == 6) {
             updateMultipleHeaderFragment(MultipleFragment.TYPE_GRID_LAYOUT);
+        } else if (index == 7) {
+            updateAnimFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
+        } else if (index == 8) {
+            updateAnimFragment(MultipleFragment.TYPE_GRID_LAYOUT);
+        } else if (index == 9) {
+            updateFullyExpandedFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
+        } else if (index == 10) {
+            updateFullyExpandedFragment(MultipleFragment.TYPE_GRID_LAYOUT);
         }
     }
 
@@ -57,6 +67,18 @@ public class DetailActivity extends ActionBarActivity {
     public void updateMultipleHeaderFragment(int type) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, MultipleHeaderBottomFragment.newInstance(type))
+                .commit();
+    }
+
+    public void updateAnimFragment(int type) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, AnimFragment.newInstance(type))
+                .commit();
+    }
+
+    public void updateFullyExpandedFragment(int type) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, FullyExpandedFragment.newInstance(type))
                 .commit();
     }
 }

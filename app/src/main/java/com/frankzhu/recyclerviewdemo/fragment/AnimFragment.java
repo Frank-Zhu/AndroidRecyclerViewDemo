@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.frankzhu.recyclerviewdemo.R;
+import com.frankzhu.recyclerviewdemo.adapter.AnimAdapter;
 import com.frankzhu.recyclerviewdemo.adapter.NormalRecyclerViewAdapter;
 
 import butterknife.ButterKnife;
@@ -30,7 +31,7 @@ import butterknife.InjectView;
  * 2015/2/6        ZhuWenWu            1.0                    1.0
  * Why & What is modified:
  */
-public class NormalFragment extends Fragment {
+public class AnimFragment extends Fragment {
     public static final int TYPE_LINEAR_LAYOUT = 1;
     public static final int TYPE_GRID_LAYOUT = 2;
     public static final int TYPE_STAGGERED_GRID_LAYOUT = 3;
@@ -38,9 +39,10 @@ public class NormalFragment extends Fragment {
     RecyclerView mRecyclerView;
 
     private int type = TYPE_LINEAR_LAYOUT;
+    private AnimAdapter mAdapter;
 
-    public static NormalFragment newInstance(int type) {
-        NormalFragment fragment = new NormalFragment();
+    public static AnimFragment newInstance(int type) {
+        AnimFragment fragment = new AnimFragment();
         Bundle args = new Bundle();
         args.putInt("type", type);
         fragment.setArguments(args);
@@ -72,7 +74,15 @@ public class NormalFragment extends Fragment {
         } else {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));//这里用线性显示 类似于list view
         }
-        mRecyclerView.setAdapter(new NormalRecyclerViewAdapter(getActivity()));
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mAdapter = new AnimAdapter(getActivity());
+        mRecyclerView.setAdapter(mAdapter);
+//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        String[] titles = getResources().getStringArray(R.array.titles);
+        mAdapter.addTitles(titles);
     }
 }

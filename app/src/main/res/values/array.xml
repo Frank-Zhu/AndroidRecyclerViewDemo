@@ -22,5 +22,8 @@
         <item>Header Bottom List</item>
         <item>Header Bottom Grid</item>
         <item>Anim List</item>
+        <item>Anim Grid</item>
+        <item>Expended List</item>
+        <item>Expended Grid</item>
     </string-array>
 </resources>
