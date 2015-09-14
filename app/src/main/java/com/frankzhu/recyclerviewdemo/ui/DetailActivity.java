@@ -1,9 +1,10 @@
-package com.frankzhu.recyclerviewdemo;
+package com.frankzhu.recyclerviewdemo.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 
+import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.fragment.AnimFragment;
 import com.frankzhu.recyclerviewdemo.fragment.FullyExpandedFragment;
 import com.frankzhu.recyclerviewdemo.fragment.MultipleFragment;

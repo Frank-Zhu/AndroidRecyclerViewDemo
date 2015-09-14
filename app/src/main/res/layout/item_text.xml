@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:id="@+id/cv_item"
     card_view:cardCornerRadius="4dp">
 
     <TextView

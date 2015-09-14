@@ -42,7 +42,7 @@ Item默认动画效果
 
 About me
 ============
-[Click Me](http://frank-zhu.github.io/about.html)
+[Click Me](http://frank-zhu.github.io/about/)
 
 License
 ============

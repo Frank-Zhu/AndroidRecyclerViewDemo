@@ -2,7 +2,18 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    buildToolsVersion '23.0.1'
+
+    signingConfigs {
+        debug {
+
+        }
+        release {
+            //setting your signing.properties
+            //first, add signing.properties to ./app/
+            //second, add property STORE_FILE, STORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD
+        }
+    }
 
     defaultConfig {
         applicationId "com.frankzhu.recyclerviewdemo"
@@ -11,19 +22,27 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
+        debug {
+
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.android.support:cardview-v7:21.0.3'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:cardview-v7:22.2.0'
     compile 'com.android.support:recyclerview-v7:21.0.3'
     //View注解   代码地址-----> https://github.com/JakeWharton/butterknife
-    compile 'com.jakewharton:butterknife:6.0.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
 }

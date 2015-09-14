@@ -13,8 +13,9 @@ import com.frankzhu.recyclerviewdemo.R;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Author:    ZhuWenWu
@@ -68,25 +69,24 @@ public class AnimAdapter extends RecyclerView.Adapter<AnimAdapter.NormalTextView
     }
 
     public static class NormalTextViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
         AnimAdapter mAdapter;
 
         NormalTextViewHolder(View view, AnimAdapter adapter) {
             super(view);
             mAdapter = adapter;
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
-                    if (getPosition() == 2) {
-                        mAdapter.remove(getPosition());
-                    } else {
-                        mAdapter.addTitle("test" + getPosition());
-                    }
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
+            if (getPosition() == 2) {
+                mAdapter.remove(getPosition());
+            } else {
+                mAdapter.addTitle("test" + getPosition());
+            }
         }
     }
 }

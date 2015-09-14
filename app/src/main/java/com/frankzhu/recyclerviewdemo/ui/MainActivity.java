@@ -1,8 +1,9 @@
-package com.frankzhu.recyclerviewdemo;
+package com.frankzhu.recyclerviewdemo.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
+import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.fragment.ItemsFragment;
 
 import butterknife.ButterKnife;

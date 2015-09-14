@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 import com.frankzhu.recyclerviewdemo.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Author:    ZhuWenWu
@@ -26,7 +27,7 @@ import butterknife.InjectView;
  * Why & What is modified:
  */
 public class MultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static enum ITEM_TYPE {
+    public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
     }
@@ -70,36 +71,34 @@ public class MultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public static class TextViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
 
         TextViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("TextViewHolder", "onClick--> position = " + getPosition());
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }
 
     public static class ImageViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
-        @InjectView(R.id.image_view)
+        @Bind(R.id.image_view)
         ImageView mImageView;
 
         ImageViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.frankzhu.recyclerviewdemo;
+package com.frankzhu.recyclerviewdemo.app;
 
 import android.app.Application;
 import android.content.Context;

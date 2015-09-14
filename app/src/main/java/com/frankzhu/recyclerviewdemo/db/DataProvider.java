@@ -14,7 +14,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 
-import com.frankzhu.recyclerviewdemo.AppApplication;
+import com.frankzhu.recyclerviewdemo.app.AppApplication;
 
 /**
  * Author:    ZhuWenWu

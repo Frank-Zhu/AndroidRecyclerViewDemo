@@ -10,12 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.frankzhu.recyclerviewdemo.DetailActivity;
+import com.frankzhu.recyclerviewdemo.ui.DetailActivity;
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.bean.DemoItem;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Author:    ZhuWenWu
@@ -48,25 +49,24 @@ public class ItemsAdapter extends BaseAbstractRecycleCursorAdapter<RecyclerView.
     }
 
     public static class NormalTextViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
         ItemsAdapter mAdapter;
 
         NormalTextViewHolder(View view, ItemsAdapter adapter) {
             super(view);
             mAdapter = adapter;
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
-                    DemoItem item = DemoItem.fromCursor((Cursor) mAdapter.getItem(getPosition()));
-                    Intent intent = new Intent(mAdapter.mContext, DetailActivity.class);
-                    intent.putExtra("position", getPosition());
-                    intent.putExtra("title", item.title);
-                    mAdapter.mContext.startActivity(intent);
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
+            DemoItem item = DemoItem.fromCursor((Cursor) mAdapter.getItem(getPosition()));
+            Intent intent = new Intent(mAdapter.mContext, DetailActivity.class);
+            intent.putExtra("position", getPosition());
+            intent.putExtra("title", item.title);
+            mAdapter.mContext.startActivity(intent);
         }
     }
 }

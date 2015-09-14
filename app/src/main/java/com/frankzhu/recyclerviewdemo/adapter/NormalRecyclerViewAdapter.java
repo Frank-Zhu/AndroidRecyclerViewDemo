@@ -10,8 +10,9 @@ import android.widget.TextView;
 
 import com.frankzhu.recyclerviewdemo.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Author:    ZhuWenWu
@@ -51,18 +52,17 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
     }
 
     public static class NormalTextViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
 
         NormalTextViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
         }
     }
 }

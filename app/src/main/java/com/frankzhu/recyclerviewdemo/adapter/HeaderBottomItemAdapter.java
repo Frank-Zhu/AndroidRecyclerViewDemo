@@ -10,8 +10,9 @@ import android.widget.TextView;
 
 import com.frankzhu.recyclerviewdemo.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Author:    ZhuWenWu
@@ -66,54 +67,51 @@ public class HeaderBottomItemAdapter extends BaseMultipleItemAdapter {
     }
 
     public static class ContentViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
 
         ContentViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("TextViewHolder", "onClick--> position = " + getPosition());
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }
 
     public static class HeaderViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
-        @InjectView(R.id.image_view)
+        @Bind(R.id.image_view)
         ImageView mImageView;
 
         HeaderViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
         }
     }
 
     public static class BottomViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.text_view)
+        @Bind(R.id.text_view)
         TextView mTextView;
-        @InjectView(R.id.image_view)
+        @Bind(R.id.image_view)
         ImageView mImageView;
 
         BottomViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
-                }
-            });
+            ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.cv_item)
+        void onItemClick() {
+            Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
         }
     }
 }

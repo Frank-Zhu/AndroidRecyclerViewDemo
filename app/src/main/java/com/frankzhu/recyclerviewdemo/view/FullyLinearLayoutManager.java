@@ -1,4 +1,4 @@
-package com.frankzhu.recyclerviewdemo;
+package com.frankzhu.recyclerviewdemo.view;
 
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;

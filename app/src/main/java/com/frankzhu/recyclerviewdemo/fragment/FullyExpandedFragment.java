@@ -3,7 +3,6 @@ package com.frankzhu.recyclerviewdemo.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -11,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.frankzhu.recyclerviewdemo.FullyGridLayoutManager;
-import com.frankzhu.recyclerviewdemo.FullyLinearLayoutManager;
+import com.frankzhu.recyclerviewdemo.view.FullyGridLayoutManager;
+import com.frankzhu.recyclerviewdemo.view.FullyLinearLayoutManager;
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.adapter.AnimAdapter;
 

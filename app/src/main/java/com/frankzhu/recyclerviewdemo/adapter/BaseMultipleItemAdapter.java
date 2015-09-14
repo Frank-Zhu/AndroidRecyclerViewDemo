@@ -17,7 +17,7 @@ import android.view.ViewGroup;
  * Why & What is modified:
  */
 public abstract class BaseMultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static enum ITEM_TYPE {
+    public enum ITEM_TYPE {
         ITEM_TYPE_HEADER,
         ITEM_TYPE_CONTENT,
         ITEM_TYPE_BOTTOM
