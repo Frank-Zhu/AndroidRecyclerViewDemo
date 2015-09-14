@@ -10,13 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.frankzhu.recyclerviewdemo.view.FullyGridLayoutManager;
-import com.frankzhu.recyclerviewdemo.view.FullyLinearLayoutManager;
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.adapter.AnimAdapter;
+import com.frankzhu.recyclerviewdemo.view.FullyGridLayoutManager;
+import com.frankzhu.recyclerviewdemo.view.FullyLinearLayoutManager;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Author:    ZhuWenWu
@@ -33,7 +33,7 @@ public class FullyExpandedFragment extends Fragment {
     public static final int TYPE_LINEAR_LAYOUT = 1;
     public static final int TYPE_GRID_LAYOUT = 2;
     public static final int TYPE_STAGGERED_GRID_LAYOUT = 3;
-    @InjectView(R.id.recycler_view)
+    @Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
     private int type = TYPE_LINEAR_LAYOUT;
@@ -58,7 +58,7 @@ public class FullyExpandedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_fully_expended, container, false);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         return rootView;
     }
 
@@ -81,5 +81,11 @@ public class FullyExpandedFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         String[] titles = getResources().getStringArray(R.array.titles);
         mAdapter.addTitles(titles);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

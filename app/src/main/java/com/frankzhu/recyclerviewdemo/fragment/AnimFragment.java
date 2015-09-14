@@ -3,7 +3,6 @@ package com.frankzhu.recyclerviewdemo.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -15,10 +14,9 @@ import android.view.ViewGroup;
 
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.adapter.AnimAdapter;
-import com.frankzhu.recyclerviewdemo.adapter.NormalRecyclerViewAdapter;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Author:    ZhuWenWu
@@ -35,7 +33,7 @@ public class AnimFragment extends Fragment {
     public static final int TYPE_LINEAR_LAYOUT = 1;
     public static final int TYPE_GRID_LAYOUT = 2;
     public static final int TYPE_STAGGERED_GRID_LAYOUT = 3;
-    @InjectView(R.id.recycler_view)
+    @Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
     private int type = TYPE_LINEAR_LAYOUT;
@@ -60,7 +58,7 @@ public class AnimFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_normal, container, false);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         return rootView;
     }
 
@@ -84,5 +82,11 @@ public class AnimFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         String[] titles = getResources().getStringArray(R.array.titles);
         mAdapter.addTitles(titles);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

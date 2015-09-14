@@ -25,5 +25,7 @@
         <item>Anim Grid</item>
         <item>Expended List</item>
         <item>Expended Grid</item>
+        <item>Single Select</item>
+        <item>Multiple Select</item>
     </string-array>
 </resources>

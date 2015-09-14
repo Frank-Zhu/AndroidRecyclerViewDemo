@@ -16,8 +16,8 @@ import android.view.ViewGroup;
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.adapter.NormalRecyclerViewAdapter;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Author:    ZhuWenWu
@@ -34,7 +34,7 @@ public class NormalFragment extends Fragment {
     public static final int TYPE_LINEAR_LAYOUT = 1;
     public static final int TYPE_GRID_LAYOUT = 2;
     public static final int TYPE_STAGGERED_GRID_LAYOUT = 3;
-    @InjectView(R.id.recycler_view)
+    @Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
     private int type = TYPE_LINEAR_LAYOUT;
@@ -58,7 +58,7 @@ public class NormalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_normal, container, false);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         return rootView;
     }
 
@@ -74,5 +74,11 @@ public class NormalFragment extends Fragment {
         }
         mRecyclerView.setAdapter(new NormalRecyclerViewAdapter(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

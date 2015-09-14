@@ -38,11 +38,11 @@ public abstract class SettingSingleSelectAdapter<T> extends BaseSingleSelectStat
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof SettingSingleSelectViewHolder) {
-            ((SettingSingleSelectViewHolder) holder).bindViewData(getTitleName(position), position);
+            ((SettingSingleSelectViewHolder) holder).bindViewData(getItemTitle(position), position);
         }
     }
 
-    public abstract String getTitleName(int position);
+    public abstract String getItemTitle(int position);
 
     static class SettingSingleSelectViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.tv_name)

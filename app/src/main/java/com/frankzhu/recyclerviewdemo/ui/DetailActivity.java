@@ -1,7 +1,7 @@
 package com.frankzhu.recyclerviewdemo.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.frankzhu.recyclerviewdemo.R;
@@ -14,12 +14,12 @@ import com.frankzhu.recyclerviewdemo.fragment.NormalFragment;
 import butterknife.ButterKnife;
 
 
-public class DetailActivity extends ActionBarActivity {
+public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         int index = getIntent().getIntExtra("position", 0);
         Log.d("NormalTextViewHolder", "onClick--> index = " + index);
         String title = getIntent().getStringExtra("title");

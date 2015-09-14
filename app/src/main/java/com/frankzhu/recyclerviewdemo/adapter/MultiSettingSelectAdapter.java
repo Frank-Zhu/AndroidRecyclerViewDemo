@@ -25,7 +25,6 @@ import butterknife.OnClick;
  * Why & What is modified:
  */
 public abstract class MultiSettingSelectAdapter<T> extends BaseMultiSelectAdapter<T> {
-
     public MultiSettingSelectAdapter(Context context) {
         super(context);
     }

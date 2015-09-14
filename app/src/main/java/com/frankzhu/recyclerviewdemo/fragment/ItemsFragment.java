@@ -19,8 +19,8 @@ import com.frankzhu.recyclerviewdemo.db.ItemsDataHelper;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Author:    ZhuWenWu
@@ -34,7 +34,7 @@ import butterknife.InjectView;
  * Why & What is modified:
  */
 public class ItemsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    @InjectView(R.id.recycler_view)
+    @Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
     private ItemsDataHelper mDataHelper;
     private ItemsAdapter mAdapter;
@@ -61,7 +61,7 @@ public class ItemsFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_normal, container, false);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         return rootView;
     }
 
@@ -101,6 +101,6 @@ public class ItemsFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 }
