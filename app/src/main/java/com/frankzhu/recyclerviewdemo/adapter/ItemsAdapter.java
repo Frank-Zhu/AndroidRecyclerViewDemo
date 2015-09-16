@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.frankzhu.recyclerviewdemo.ui.DetailActivity;
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.bean.DemoItem;
+import com.frankzhu.recyclerviewdemo.ui.DetailActivity;
 import com.frankzhu.recyclerviewdemo.ui.SelectActivity;
 
 import butterknife.Bind;
@@ -64,12 +64,12 @@ public class ItemsAdapter extends BaseAbstractRecycleCursorAdapter<RecyclerView.
         void onItemClick() {
             Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
             DemoItem item = DemoItem.fromCursor((Cursor) mAdapter.getItem(getPosition()));
-            if(getPosition() < 11) {
+            if (getPosition() < 11) {
                 Intent intent = new Intent(mAdapter.mContext, DetailActivity.class);
                 intent.putExtra("position", getPosition());
                 intent.putExtra("title", item.title);
                 mAdapter.mContext.startActivity(intent);
-            }else {
+            } else {
                 Intent intent = new Intent(mAdapter.mContext, SelectActivity.class);
                 intent.putExtra("position", getPosition());
                 intent.putExtra("title", item.title);

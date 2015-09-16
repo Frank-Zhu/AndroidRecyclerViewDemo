@@ -6,11 +6,11 @@
         <item>JAVA</item>
         <item>C++</item>
         <item>Ruby</item>
-        <item>Android</item>
-        <item>IOS</item>
-        <item>JAVA</item>
-        <item>C++</item>
-        <item>Ruby</item>
+        <item>WEB</item>
+        <item>HTML</item>
+        <item>PERL</item>
+        <item>C</item>
+        <item>SWIFT</item>
     </string-array>
 
     <string-array name="items">

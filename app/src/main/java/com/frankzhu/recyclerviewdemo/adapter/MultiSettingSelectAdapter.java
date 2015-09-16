@@ -12,6 +12,7 @@ import com.frankzhu.recyclerviewdemo.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 /**
  * Author:    ZhuWenWu
@@ -25,6 +26,20 @@ import butterknife.OnClick;
  * Why & What is modified:
  */
 public abstract class MultiSettingSelectAdapter<T> extends BaseMultiSelectAdapter<T> {
+    private OnActionModeCallBack onActionModeCallBack;
+    private boolean isActionModeShow = false;
+
+    public void setOnActionModeCallBack(OnActionModeCallBack onActionModeCallBack) {
+        this.onActionModeCallBack = onActionModeCallBack;
+    }
+
+    public void setIsActionModeShow(boolean isActionModeShow) {
+        this.isActionModeShow = isActionModeShow;
+        if (!isActionModeShow) {
+            clearAllSelect();
+        }
+    }
+
     public MultiSettingSelectAdapter(Context context) {
         super(context);
     }
@@ -64,7 +79,7 @@ public abstract class MultiSettingSelectAdapter<T> extends BaseMultiSelectAdapte
 
         @OnClick(R.id.fl_check)
         void onSelected() {
-            if (mAdapter.isSelectedEnable) {
+            if (mAdapter.isSelectedEnable && mAdapter.isActionModeShow) {
                 if (mAdapter.isSelected(getPosition())) {//已选中
                     mAdapter.removeSelectPosition(getPosition());
                 } else {//未选中
@@ -73,5 +88,21 @@ public abstract class MultiSettingSelectAdapter<T> extends BaseMultiSelectAdapte
                 mAdapter.notifyItemChanged(getPosition());
             }
         }
+
+        @OnLongClick(R.id.fl_check)
+        boolean onLongSelected() {
+            if (mAdapter.isActionModeShow) {//已显示选择模式
+                onSelected();
+            } else {
+                if (mAdapter.onActionModeCallBack != null) {
+                    mAdapter.onActionModeCallBack.showActionMode();
+                }
+            }
+            return true;
+        }
+    }
+
+    public interface OnActionModeCallBack {
+        public void showActionMode();
     }
 }

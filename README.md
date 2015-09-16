@@ -9,6 +9,12 @@ Android RecyclerView part 2 blog -->[RecyclerView使用详解（二）](http://f
 
 Android RecyclerView part 3 blog -->[RecyclerView使用详解（三）](http://frank-zhu.github.io/android/2015/02/26/android-recyclerview-part-3/)
 
+Update
+============
+---20150615---
+  * MultipleSelectFragment - RecyclerView Multiple Select and ActionMode;
+  * SingleSelectFragment - RecyclerView Single Select;
+
 Here you can find:
 ============
   * NormalFragment - RecyclerView Basic Usage;
@@ -20,6 +26,13 @@ Here you can find:
 
 Arts
 ============
+
+多选样式
+![](https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/m_1.gif)
+
+单选样式
+![](https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/s_1.gif)
+
 LinearLayoutManager样式
 ![](https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/normal_2.png)
 
