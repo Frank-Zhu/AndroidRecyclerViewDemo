@@ -41,8 +41,8 @@ public class FullyGridLayoutManager extends GridLayoutManager {
         int span = getSpanCount();
         for (int i = 0; i < count; i++) {
             measureScrapChild(recycler, i,
-                    View.MeasureSpec.makeMeasureSpec(i, View.MeasureSpec.UNSPECIFIED),
-                    View.MeasureSpec.makeMeasureSpec(i, View.MeasureSpec.UNSPECIFIED),
+                    View.MeasureSpec.makeMeasureSpec(widthSize, widthMode),
+                    View.MeasureSpec.makeMeasureSpec(heightSize, heightMode),
                     mMeasuredDimension);
 
             if (getOrientation() == HORIZONTAL) {

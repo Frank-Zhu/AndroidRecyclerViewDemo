@@ -51,8 +51,8 @@ public class FullyLinearLayoutManager extends LinearLayoutManager {
         int height = 0;
         for (int i = 0; i < getItemCount(); i++) {
             measureScrapChild(recycler, i,
-                    View.MeasureSpec.makeMeasureSpec(i, View.MeasureSpec.UNSPECIFIED),
-                    View.MeasureSpec.makeMeasureSpec(i, View.MeasureSpec.UNSPECIFIED),
+                    View.MeasureSpec.makeMeasureSpec(widthSize, widthMode),
+                    View.MeasureSpec.makeMeasureSpec(heightSize, heightMode),
                     mMeasuredDimension);
 
             if (getOrientation() == HORIZONTAL) {
